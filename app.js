@@ -8,15 +8,15 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const homeData = require('./routes/home')
-const adminData = require('./routes/admin');
+const homeRoutes = require('./routes/home')
+const adminRoutes = require('./routes/admin');
 const employeeRoutes = require('./routes/employee');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(homeData)
-app.use('/admin', adminData.routes);
+app.use(homeRoutes)
+app.use('/admin', adminRoutes);
 app.use(employeeRoutes);
 
 app.use((req, res, next) => {
