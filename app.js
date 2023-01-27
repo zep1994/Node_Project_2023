@@ -2,6 +2,9 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+
+const errorController = require('./controllers/error')
 
 const app = express();
 
@@ -19,8 +22,13 @@ app.use(homeRoutes)
 app.use('/admin', adminRoutes);
 app.use(employeeRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).render('404', { pageTitle: 'Page Not Found' });
-});
+app.use(errorController.get404);
 
-app.listen(3000);
+mongoose
+.connect('mongodb+srv://root:rebel1994isCool@cluster0.ws4vxdk.mongodb.net/?retryWrites=true&w=majority')
+.then(app.listen(3000))
+.then(console.log("Connected Sucessfully"))
+.catch((err) => {
+    console.log(err)
+})
+
