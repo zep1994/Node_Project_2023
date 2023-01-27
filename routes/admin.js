@@ -1,20 +1,29 @@
-const path = require('path')
+const path = require('path');
 
-const express = require('express')
-const rootDir = require('../util/path')
+const express = require('express');
 
-const app = express()
+const rootDir = require('../util/path');
 
-// /admin/add-product => GET
-app.get('/add-employee', (req, res, next) => {
-    res.sendFile(path.join(rootDir, 'views', '/employee/add-employee.html'));
+const router = express.Router();
+
+const employees = [];
+
+// /admin/add-employee => GET
+router.get('/add-employee', (req, res, next) => {
+  res.render('employee/add-employee', {
+    pageTitle: 'Add Employee',
+    path: '/admin/add-employee',
+    formsCSS: true,
+    employeeCSS: true,
+    activeAddEmployee: true
   });
-  
-  // /admin/add-product => POST
-  app.post('/add-employee', (req, res, next) => {
-    //products.push({ title: req.body.title });
-    console.log(req.body)
-    res.redirect('/');
-  });
+});
 
-module.exports = app
+// /admin/add-employee => POST
+router.post('/add-employee', (req, res, next) => {
+  employees.push({ title: req.body.title });
+  res.redirect('/');
+});
+
+exports.routes = router;
+exports.employees = employees;

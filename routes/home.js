@@ -3,17 +3,16 @@ const path = require('path');
 const express = require('express');
 
 const rootDir = require('../util/path');
-const adminData = require('./admin');
+const homeData = require('./home');
 
 const router = express.Router();
 
-router.get('/employees', (req, res, next) => {
-  const employees = adminData.employees;
-  res.render('employee/employees', {
+router.get('/', (req, res, next) => {
+  const employees = homeData.employees;
+  res.render('home', {
     employees: employees,
     pageTitle: 'employees',
-    path: '/employees',
-    hasEmployees: employees.length > 0,
+    path: '/',
     activeShop: true,
     employeeCSS: true
   });
