@@ -1,15 +1,15 @@
-const employees = []
+// const employees = []
 
-module.exports = class Employee {
-    constructor(x) {
-        this.title = x
-    }
+// module.exports = class Employee {
+//     constructor(x) {
+//         this.title = x
+//     }
 
-    save() {
-        employees.push(this)
-    }
+//     save() {
+//         employees.push(this)
+//     }
 
-    static fetchAll() {
-        return this.employees
-    }
-}
+//     static fetchAll() {
+//         return employees
+//     }
+// }
