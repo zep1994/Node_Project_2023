@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose")
 
 const Schema = mongoose.Schema
 
@@ -6,14 +6,14 @@ const employeeShcema = new Schema({
     title: {
         type: String,
         required: true
-    },
+    }
     // description: {
     //     type: String,
     //     required: true
     // }
 })
 
-module.exports = mongoose.Model("Employee", employeeShcema)
+module.exports = mongoose.model("Employee", employeeShcema)
 
 
 // const employees = []
