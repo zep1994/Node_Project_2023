@@ -13,6 +13,8 @@ const employeeShcema = new Schema({
     // }
 })
 
+module.exports = mongoose.Model("Employee", employeeShcema)
+
 
 // const employees = []
 
