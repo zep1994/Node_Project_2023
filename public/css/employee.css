@@ -1,0 +1,25 @@
+.employee-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+}
+
+.employee-item {
+    width: 20rem;
+    max-width: 95%;
+}
+
+.employee__title {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.employee__price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
+}
+
+.employee__description {
+    text-align: center;
+}
