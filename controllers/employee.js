@@ -18,12 +18,17 @@ exports.postAddEmployees =  (req, res, next) => {
 }
 
 exports.getEmployees = (req, res, next) => {
-    const employees = Employee.fetchAll()
-    res.render('employee/employees', {
-      employees: employees,
-      pageTitle: 'employees',
-      path: '/employees',
-      activeShop: true,
-      employeeCSS: true
-    });
+    Employee.find()
+    .then(employees => {
+      res.render('employee/employees', {
+        employees: employees,
+        pageTitle: 'employees',
+        path: '/employees',
+        activeShop: true,
+        employeeCSS: true
+      });
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
