@@ -11,6 +11,7 @@ const employeeShcema = new Schema({
     //     type: String,
     //     required: true
     // }
+    
 })
 
 module.exports = mongoose.model("Employee", employeeShcema)
