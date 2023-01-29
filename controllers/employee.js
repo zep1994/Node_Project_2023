@@ -32,3 +32,7 @@ exports.getEmployees = (req, res, next) => {
       console.log(err)
     })
 }
+
+exports.getEmployee = (req, res, next) => {
+  const empId = req.params.empId
+}
