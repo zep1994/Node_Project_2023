@@ -16,6 +16,7 @@ app.set('views', 'views');
 const homeRoutes = require('./routes/home')
 const adminRoutes = require('./routes/admin');
 const employeeRoutes = require('./routes/employee');
+const authRoutes = require('./routes/auth')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 
 app.use(homeRoutes)
 app.use('/admin', adminRoutes);
+app.use('/auth', authRoutes)
 app.use(employeeRoutes);
 
 app.use(errorController.get404);
