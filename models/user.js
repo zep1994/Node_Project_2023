@@ -11,7 +11,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-
+    employeeId: {
+        type: Schema.Types.ObjectId,
+        ref: "Employee"
+    }
 })
 
 module.exports = mongoose.model('User', UserSchema)

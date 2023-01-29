@@ -16,6 +16,7 @@ exports.postAddEmployees = (req, res, next) => {
   const employee = new Employee({
     title: title,
     description: description,
+    userId: req.user
     // imageUrl: imageUrl
   });
   employee
@@ -56,11 +57,13 @@ exports.postEditEmployee = (req, res, next) => {
   const updatedTitle = req.body.title;
   // const updatedImageUrl = req.body.imageUrl;
   const updatedDesc = req.body.description;
+  const updateUserId = req.user
 
   Employee.findById(employeeId)
   .then(employee => {
     employee.title = updatedTitle
     employee.description = updatedDesc
+    employee.userId = updateUserId
     employee.save()
   })
 
