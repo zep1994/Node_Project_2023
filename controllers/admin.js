@@ -74,7 +74,7 @@ exports.postEditEmployee = (req, res, next) => {
 
 exports.postDeleteEmployee = (req, res, next) => {
   const prodId = req.body.employeeId;
-  Employee.deleteById(prodId)
+  Employee.findOneAndRemove(prodId)
     .then(() => {
       console.log('DESTROYED PRODUCT');
       res.redirect('/employees');

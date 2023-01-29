@@ -18,7 +18,7 @@ router.get('/edit-employee/:employeeId', adminController.getEditEmployee);
 // /admin/add-employee => POST
 router.post('/edit-employee', adminController.postEditEmployee);
 
-//router.post('/delete-employee', adminController.postDeleteEmployee);
+router.post('/delete-employee', adminController.postDeleteEmployee);
 
 
 module.exports = router;
