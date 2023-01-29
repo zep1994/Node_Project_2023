@@ -1,4 +1,3 @@
-const employee = require('../models/employee');
 const Employee = require('../models/employee');
 
 exports.getAddEmployees = (req, res, next) => {
