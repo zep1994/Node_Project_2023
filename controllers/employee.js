@@ -1,21 +1,21 @@
 const Employee = require('../models/employee')
 
-exports.getAddEmployees = (req, res, next) => {
-    res.render('employee/add-employee', {
-      pageTitle: 'Add Employee',
-      path: '/admin/add-employee',
-      formsCSS: true,
-      employeeCSS: true,
-      activeAddEmployee: true
-    });
-}
+// exports.getAddEmployees = (req, res, next) => {
+//     res.render('/employee/add-employee', {
+//       pageTitle: 'Add Employee',
+//       path: '/admin/add-employee',
+//       formsCSS: true,
+//       employeeCSS: true,
+//       activeAddEmployee: true
+//     });
+// }
 
-exports.postAddEmployees =  (req, res, next) => {
-    //Create new Employee with Model
-    const employee = new Employee(req.body.title)
-    employee.save()
-    res.redirect('/');
-}
+// exports.postAddEmployees =  (req, res, next) => {
+//     //Create new Employee with Model
+//     const employee = new Employee(req.body.title)
+//     employee.save()
+//     res.redirect('/');
+// }
 
 exports.getEmployees = (req, res, next) => {
     Employee.find()
@@ -34,5 +34,14 @@ exports.getEmployees = (req, res, next) => {
 }
 
 exports.getEmployee = (req, res, next) => {
-  const empId = req.params.empId
+  const empId = req.params.employeeId
+  Employee.findById(empId)
+  .then(employee => {
+    res.render('employee/employee-detail', {
+      employee: employee,
+      pageTitle: employee.title,
+      path: '/employees'
+    })
+  })
+  .catch(err => console.log(err))
 }

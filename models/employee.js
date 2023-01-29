@@ -3,21 +3,18 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const employeeShcema = new Schema({
-      id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true
-  },
     title: {
         type: String,
         required: true
     },
-    // description: {
-    //     type: String,
-    //     required: true
-    // }
-    
+    description: {
+        type: String,
+        required: true
+    },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
 module.exports = mongoose.model("Employee", employeeShcema)
