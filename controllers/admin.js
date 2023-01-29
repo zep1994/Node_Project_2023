@@ -10,11 +10,11 @@ exports.getAddEmployees = (req, res, next) => {
 
 exports.postAddEmployees = (req, res, next) => {
   const title = req.body.title;
-//   const imageUrl = req.body.imageUrl;
-//   const description = req.body.description;
+  //const imageUrl = req.body.imageUrl;
+  //const description = req.body.description;
   const employee = new Employee({
     title: title,
-    // description: description,
+    //description: description,
     // imageUrl: imageUrl
   });
   employee
@@ -22,7 +22,7 @@ exports.postAddEmployees = (req, res, next) => {
     .then(result => {
       // console.log(result);
       console.log('Created Employee');
-      res.redirect('/admin/employees');
+      res.redirect('/employees');
     })
     .catch(err => {
       console.log(err);
