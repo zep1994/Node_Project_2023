@@ -8,7 +8,9 @@ const router = express.Router();
 
 
 //GET /employees
-router.get('/employees', employeesController.getEmployees );
+router.get('/employees', employeesController.getEmployees);
 
+//GET /employee
+router.get('/employees/:employeeId', employeesController.getEmployee)
 
 module.exports = router;

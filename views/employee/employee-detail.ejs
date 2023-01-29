@@ -1,0 +1,23 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main class="centered">
+            <article class="card employee-item">
+                <header class="card__header">
+                    <h1 class="employee__title">
+                        <%= employee.title %>
+                    </h1>
+                </header>
+                <div class="card__image">
+                    <img src="<%= employee.imageUrl %>" alt="<%= employee.title %>">
+                </div>
+                <div class="card__content">
+                    <p class="employee__description">
+                        <%= employee.description %>
+                    </p>
+                </div>
+            </article>
+        </main>
+        <%- include('../includes/end.ejs') %>
